@@ -1,0 +1,36 @@
+.buttons {
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.btn {
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Roroto', sans-serif;
+    text-transform: uppercase;
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.btn:first-child {
+    background-color: #a8f282;
+}
+
+.btn:nth-child(2) {
+    background-color: #82d3f9;
+}
+
+.btn:last-child {
+    background-color: #f28284;
+}
+
+.btn:active {
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+    transform: translateY(-5px);
+  }
