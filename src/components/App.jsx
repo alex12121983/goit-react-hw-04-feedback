@@ -9,32 +9,50 @@ const App = () => {
 	const [neutral, setNeutral] = useState(0)
 	const [bad, setBad] = useState(0)
 
+
 	const onLeaveFeedback = ({target: {name}}) => {
-		if ( name === 'good' ) { 
-			setGood((prev) => prev + 1) 
-		} else if ( name === 'neutral' ) {
-			setNeutral((prev) => prev + 1) 
-		} else {
-			setBad((prev) => prev + 1) 
+		switch (name) {
+			case 'good':
+				setGood((prev) => prev + 1)
+				console.log('good' + good) 
+				break;
+			case 'neutral':
+				setNeutral((prev) => prev + 1)
+				console.log('neutral' + neutral)
+				break;
+			case 'bad':
+				setBad((prev) => prev + 1)
+				console.log('bad' + bad) 
+				break;
+			default:
+				break;
 		}
+	}
+
+	const countTotalFeedback = () => {
+		return (good + neutral + bad)
+	}
+
+    const positivePercentage = () => {
+		return Math.floor((good / (good + neutral + bad)) * 100)
 	}
 
 	return (
 			<>
 				 <Section title={'Please leave feedback'}>
 				 	<FeedbackOptions 
-						options={['good', 'neutral', 'bad']} 
+						options={Object.keys({good, neutral, bad})} 
 						onLeaveFeedback={onLeaveFeedback}
 					/>
 				 </Section>
 				 <Section title={'Statistics'}>
-					{(good !== 0 
-					|| neutral !== 0 
-					|| bad !== 0) ? 
+					{countTotalFeedback ()   ? 
 					(<Statistics 
 						good={good} 
 						neutral={neutral} 
 						bad={bad}
+						countTotalFeedback={countTotalFeedback()}
+						positivePercentage={positivePercentage()}
 					/>) 
 					: (<Notification  message={'There is no feedback'}/>)}
 				 </Section>
