@@ -13,16 +13,13 @@ const App = () => {
 	const onLeaveFeedback = ({target: {name}}) => {
 		switch (name) {
 			case 'good':
-				setGood((prev) => prev + 1)
-				console.log('good' + good) 
+				setGood((prev) => prev + 1) 
 				break;
 			case 'neutral':
 				setNeutral((prev) => prev + 1)
-				console.log('neutral' + neutral)
 				break;
 			case 'bad':
-				setBad((prev) => prev + 1)
-				console.log('bad' + bad) 
+				setBad((prev) => prev + 1) 
 				break;
 			default:
 				break;

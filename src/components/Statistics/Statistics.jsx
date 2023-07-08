@@ -2,14 +2,6 @@ import css from './Statistics.module.css';
 import PropTypes from "prop-types";
 
 const Statistics = ({ good, neutral, bad, countTotalFeedback, positivePercentage }) => {
-    console.log('good:' + good)
-    // const countTotalFeedback = (good, neutral, bad) => {
-	// 	return (good + neutral + bad)
-	// }
-
-    // const positivePercentage = (good, neutral, bad) => {
-	// 	return Math.floor((good / (good + neutral + bad)) * 100)
-	// }
 
     return (
             <ul className={css.list}>
@@ -38,4 +30,6 @@ Statistics.propTypes = {
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
+    countTotalFeedback: PropTypes.func.isRequired,
+    positivePercentage: PropTypes.func.isRequired,
   };
